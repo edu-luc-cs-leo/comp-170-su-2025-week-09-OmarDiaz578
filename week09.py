@@ -50,11 +50,28 @@ def count_occurrences_iterative(data_list, target):
 
 # WRITE YOUR CODE BELOW
 
+# RECURSIVE VERSION OF ASSIGNMENT METHODS
+
 def sum_of_digits(n: int) -> int:
+    # If n is less than 10, it's a single digit, returns it
     if n < 10:
         result = n
+    # If n has multiple digits...
+    # Extracts last digit of n and gets added to total sum
+    # Calls the same function recursively on remaining digits, excluding last digit (n // 10)
     else:
         result = (n % 10) + sum_of_digits(n // 10)
+    return result
+
+def count_occurences(data_list: list[int], target: int) -> int:
+    # If no list is provided 0 is returned
+    if not data_list:
+        result = 0
+    else:
+        # Checks if first item matches the target
+        # If it does it adds 1 to result, repeats on the rest of the list
+        increment = 1 if data_list[0] == target else 0
+        result = increment + count_occurences(data_list[1:], target)
     return result
 
 
