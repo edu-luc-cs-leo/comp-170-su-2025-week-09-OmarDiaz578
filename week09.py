@@ -50,3 +50,5 @@ def count_occurrences_iterative(data_list, target):
 
 # WRITE YOUR CODE BELOW
 
+def factorial_iterative(n: int) -> int: 
+    
