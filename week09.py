@@ -50,5 +50,12 @@ def count_occurrences_iterative(data_list, target):
 
 # WRITE YOUR CODE BELOW
 
-def factorial_iterative(n: int) -> int: 
-    
+def sum_of_digits(n: int) -> int:
+    if n < 10:
+        result = n
+    else:
+        result = (n % 10) + sum_of_digits(n // 10)
+    return result
+
+
+#def factorial_iterative(n: int) -> int: 
