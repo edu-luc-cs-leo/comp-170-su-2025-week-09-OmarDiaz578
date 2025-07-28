@@ -75,4 +75,60 @@ def count_occurences(data_list: list[int], target: int) -> int:
     return result
 
 
-#def factorial_iterative(n: int) -> int: 
+def factorial_iterative(n: int) -> int: 
+    result: int = 1
+    i: int = 1
+    # Uses while loop to multiply by every number from 1 to n
+    while i <= n:
+        result *= i
+        # Increments i by 1 to move to the next number in the loop
+        i += 1
+    return result
+
+
+def fibonacci_iterative(n: int) -> int:
+    if n == 1:
+        result = 1
+    elif n == 2:
+        result = 2
+    # Runs if n is greater than 2
+    else:
+        # represents first Fibonacci number
+        prev1: int = 1
+        # represents second Fibonacci number
+        prev2: int = 2
+        # starts iteration from 3 since 1 and 2 are already known
+        i: int = 3
+        # stores computed Fibonacci value at each step
+        fib: int = 0
+        while i <= n:
+            # computes the next Fibonacci number by adding two previous ones
+            fib = prev1 + prev2
+            # updates prev1 to what prev2 was
+            prev1 = prev2
+            # updates prev2 to hold new fib value
+            prev2 = fib
+            # Moves to the next
+            i += 1
+        result = fib
+    return result
+
+
+# TESTING 
+print("\n\nTest of sum_of_digits:")
+print("---------------------\n")
+print(sum_of_digits(1234))
+print(sum_of_digits(1234))
+print("\n\nTest of count_occurerences:")
+print("--------------------------\n")
+print(count_occurences([4, 5, 6, 7, 7, 6, 8, 1], 7))
+print(count_occurences([4, 5, 6, 7, 4, 6, 4, 1], 4))
+print("\n\nTest of factorial_iterative:")
+print("---------------------------\n")
+print(factorial_iterative(4))
+print(factorial_iterative(5))
+print("\n\nTest of fibonacci_iterative:")
+print("---------------------------\n")
+print(fibonacci_iterative(2))
+print(fibonacci_iterative(6))
+print(fibonacci_iterative(9))
